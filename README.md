@@ -24,25 +24,25 @@ An enterprise-grade, AI-powered document intelligence platform for auditors and 
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                      USER INTERFACE                        │
-│          Next.js Frontend  ───  FastAPI REST Backend        │
+│          Next.js Frontend  ───  FastAPI REST Backend       │
 └───────────────┬────────────────────────┬───────────────────┘
                 │                        │
                 ▼                        ▼
    ┌────────────────────┐    ┌─────────────────────────┐
-   │  INGESTION PIPELINE │    │   QUERY PIPELINE         │
-   │                    │    │   (LangGraph Agent)       │
-   │  PDF → LlamaParse  │    │                          │
-   │  → Chunker         │    │  Router → Rewriter       │
-   │  → Embedder        │    │  → Decomposer            │
-   │  → FAISS Index     │    │  → Researcher (×N)       │
-   └─────────┬──────────┘    │  → Synthesizer           │
-             │               │  → Reviewer              │
-             └──────┬────────┘  → Finalizer             │
-                    ▼                                    │
-           ┌─────────────────┐                          │
-           │  FAISS Vector DB │◄─────────────────────────┘
+   │  INGESTION PIPELINE│    │   QUERY PIPELINE        │
+   │                    │    │   (LangGraph Agent)     │
+   │  PDF → LlamaParse  │    │                         │
+   │  → Chunker         │    │  Router → Rewriter      │
+   │  → Embedder        │    │  → Decomposer           │
+   │  → FAISS Index     │    │  → Researcher (×N)      │
+   └─────────┬──────────┘    │  → Synthesizer          │
+             │               │  → Reviewer             │
+             └──────┬────────┘  → Finalizer            │
+                    ▼                                  │
+           ┌──────────────────┐                        │
+           │  FAISS Vector DB │◄───────────────────────┘
            │  (Local Storage) │
-           └─────────────────┘
+           └──────────────────┘
 ```
 
 ---
@@ -230,9 +230,9 @@ START
   ↓
 [Router] → classify intent (text / image / mixed)
   ↓
-├─ text  → [Query Rewriter] → [Query Decomposer] → [Text Researcher] ──┐
+├─ text  → [Query Rewriter] → [Query Decomposer] → [Text Researcher] ───┐
 ├─ image → [Image Researcher] ──────────────────────────────────────────┤
-└─ mixed → both paths in parallel ─────────────────────────────────────┤
+└─ mixed → both paths in parallel ──────────────────────────────────────┤
                                                                         ↓
                                                             [Synthesizer] (if multi-hop)
                                                                         ↓
