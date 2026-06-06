@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+*.egg-info/
+dist/
+build/
+
+# Streamlit
+.streamlit/
+
+# Docker
+uploads/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Specific
+venv/
+.pytest_cache/
+scratch/
+temp_pdfs/
+contoh/
+src/vector_store/faiss_index/
