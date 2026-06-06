@@ -2,7 +2,7 @@
 
 An enterprise-grade, AI-powered document intelligence platform for auditors and financial analysts. Upload complex financial PDFs (prospectuses, annual reports, audit opinions), ask questions in natural language, and receive accurate answers — including computed financial ratios and YoY comparisons — with traceable, clickable source citations.
 
-> **In a single sentence:** A locally-deployable, LLM-agnostic financial co-pilot that reads borderless tables, performs mathematical analysis, and always shows its sources.
+>  A locally-deployable, LLM-agnostic financial co-pilot that reads borderless tables, performs mathematical analysis, and always shows its sources.
 
 ---
 
